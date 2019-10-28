@@ -17,10 +17,10 @@ echo "INFO: Run on your local machine ----> ${SSH_FORWARDING_COMMAND}"
 printf "\n\n"
 
 docker run -p $NOTEBOOK_PORT:${DOCKER_NOTEBOOK_PORT} \
--v $(PWD)/notebooks:${NOTEBOOK_DIRECTORY} -v $(PWD)/logs:${LOGS_DIRECTORY} \
+-v /home/$USER:/home/$USER  -v $(pwd)/notebooks:${NOTEBOOK_DIRECTORY} -v $(pwd)/logs:${LOGS_DIRECTORY} \
 --user=`id -u`:`id -g` --env USER=$USER \
 -v /etc/passwd:/etc/passwd \
--v /etc/group:/etc/group --rm ai_lab:latest /bin/bash -c \
+-v /etc/group:/etc/group --rm gcr.io/serious-timer-256620/ai_lab:latest /bin/bash -c \
 "jupyter-lab \
 --FileContentsManager.root_dir=${NOTEBOOK_DIRECTORY} \
 --NotebookApp.open_browser=False \
