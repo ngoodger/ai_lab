@@ -2,8 +2,9 @@
 NOTEBOOK_PORT=8870
 DOCKER_NOTEBOOK_PORT=8888
 LOCAL_NOTEBOOK_PORT=8870 
-NOTEBOOK_DIRECTORY=/notebooks
+NOTEBOOKS_DIRECTORY=/notebooks
 LOGS_DIRECTORY=/logs
+CHECKPOINTS_DIRECTORY=/checkpoints
 
 NOTEBOOK_IP=${NOTEBOOK_IP:-0.0.0.0}
 
@@ -17,7 +18,7 @@ echo "INFO: Run on your local machine ----> ${SSH_FORWARDING_COMMAND}"
 printf "\n\n"
 
 docker run -p $NOTEBOOK_PORT:${DOCKER_NOTEBOOK_PORT} \
--v /home/$USER:/home/$USER  -v $(pwd)/notebooks:${NOTEBOOK_DIRECTORY} -v $(pwd)/logs:${LOGS_DIRECTORY} \
+-v /home/$USER:/home/$USER -v $(pwd)/checkpoints:${CHECKPOINTS_DIRECTORY} -v $(pwd)/notebooks:${NOTEBOOKS_DIRECTORY} -v $(pwd)/logs:${LOGS_DIRECTORY} \
 --user=`id -u`:`id -g` --env USER=$USER \
 -v /etc/passwd:/etc/passwd \
 -v /etc/group:/etc/group --rm gcr.io/serious-timer-256620/ai_lab:latest /bin/bash -c \
