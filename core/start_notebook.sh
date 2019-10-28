@@ -17,7 +17,7 @@ echo "INFO: If the user wants to setup local port forwarding on her local machin
 echo "INFO: Run on your local machine ----> ${SSH_FORWARDING_COMMAND}"
 printf "\n\n"
 
-docker run -p $NOTEBOOK_PORT:${DOCKER_NOTEBOOK_PORT} \
+nvidia-docker run -p $NOTEBOOK_PORT:${DOCKER_NOTEBOOK_PORT} \
 -v /home/$USER:/home/$USER -v $(pwd)/workspace/checkpoints:${CHECKPOINTS_DIRECTORY} -v $(pwd)/workspace/notebooks:${NOTEBOOKS_DIRECTORY} -v $(pwd)/workspace/logs:${LOGS_DIRECTORY} \
 --user=`id -u`:`id -g` --env USER=$USER \
 -v /etc/passwd:/etc/passwd \
