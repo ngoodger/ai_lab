@@ -6,5 +6,5 @@ pandas==0.25.2
 jupyterlab==1.1.4
 tqdm==4.31.1
 tensorboard==1.15.0
-gym==0.15.3
+gym[box2d, classic_control, algorithmic, atari, toy_text]==0.15.3
 dotmap==1.3.8
