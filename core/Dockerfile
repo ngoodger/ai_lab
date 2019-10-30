@@ -1,4 +1,4 @@
-FROM nvidia/cuda:10.0-cudnn7-runtime-ubuntu18.04
+FROM nvidia/cuda:10.1-cudnn7-runtime-ubuntu18.04
 RUN apt-get clean
 RUN apt-get update
 RUN apt-get -y install wget curl vim sudo libspatialindex-dev zlib1g-dev libffi-dev libsqlite3-dev libssl-dev
