@@ -16,8 +16,8 @@ echo "INFO: Run on your local machine ----> ${SSH_FORWARDING_COMMAND}"
 printf "\n\n"
 
 docker run -p $TENSORBOARD_PORT:${DOCKER_NOTEBOOK_PORT} \
--v $(PWD)/logs:${LOGS_DIRECTORY} \
+-v $(pwd)/workspace/logs:${LOGS_DIRECTORY} \
 --user=`id -u`:`id -g` --env USER=$USER \
 -v /etc/passwd:/etc/passwd \
--v /etc/group:/etc/group --rm ai_lab:latest /bin/bash -c \
+-v /etc/group:/etc/group --rm gcr.io/serious-timer-256620/ai_lab:latest /bin/bash -c \
 "tensorboard --logdir=logs"
