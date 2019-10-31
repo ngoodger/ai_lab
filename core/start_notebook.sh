@@ -22,7 +22,8 @@ if [[ -z `nvidia-smi -L` ]]
 then
     DOCKER_RUN_CMD="docker"
 else
-    DOCKER_RUN_CMD="nvidia-docker"
+    DOCKER_RUN_CMD="docker"
+    #DOCKER_RUN_CMD="nvidia-docker"
 fi
 
 ${DOCKER_RUN_CMD} run -p $NOTEBOOK_PORT:${DOCKER_NOTEBOOK_PORT} \
