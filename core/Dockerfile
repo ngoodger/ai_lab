@@ -19,6 +19,7 @@ RUN pip3 install -r /requirements.txt
 
 RUN jupyter labextension install jupyterlab_vim
 RUN jupyter labextension install @jupyterlab/celltags
+RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
 # Enable reconfiguration of jupyter-lab without sudo password.
 RUN echo "%sudo ALL = NOPASSWD: /usr/local/bin/jupyter" >> /etc/sudoers
 
