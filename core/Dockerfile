@@ -17,6 +17,13 @@ COPY ./requirements.txt /requirements.txt
 RUN pip3 install --upgrade pip
 RUN pip3 install -r /requirements.txt
 
+# Workaround for installing line_profiler until new release after 2.1.2
+RUN git clone https://github.com/rkern/line_profiler.git
+RUN find line_profiler -name '*.pyx' -exec cython {} \;
+WORKDIR "line_profiler"
+RUN pip3 install . 
+WORKDIR "/"
+
 RUN jupyter labextension install jupyterlab_vim
 RUN jupyter labextension install @jupyterlab/celltags
 RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
