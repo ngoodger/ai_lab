@@ -1,6 +1,6 @@
-#!/bin/sh
-__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+#!/bin/bash
+echo $DIR
 tmux new-session -d
-tmux split-window -h ${__dir}/'ai_lab/core/start_notebook'
-tmux split-window -v ${__dir}/'/ai_lab/core/start_tensorboard'
+tmux split-window -h "core/start_notebook"
+tmux split-window -v "core/start_tensorboard"
 tmux -2 attach-session -d
