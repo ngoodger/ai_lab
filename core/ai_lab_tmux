@@ -1,0 +1,5 @@
+#!/bin/sh
+tmux new-session -d
+tmux split-window -h 'ai_lab/core/start_notebook'
+tmux split-window -v 'ai_lab/core/start_tensorboard'
+tmux -2 attach-session -d
