@@ -2,6 +2,7 @@ FROM nvidia/cuda:10.1-cudnn7-runtime-ubuntu18.04
 RUN apt-get clean
 RUN apt-get update
 RUN apt-get -y install wget curl git vim sudo libspatialindex-dev zlib1g-dev libffi-dev libsqlite3-dev libssl-dev
+RUN apt-get -y install mongodb
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get -y install nodejs
 
