@@ -3,7 +3,7 @@ torchvision==0.4.2
 numpy==1.17.3
 matplotlib==3.1.1
 pandas==0.25.2
-jupyterlab==1.1.4
+jupyterlab==1.2.21
 tqdm==4.31.1
 tensorboard==1.15.0
 gym[box2d, classic_control, algorithmic, atari, toy_text]==0.15.3
